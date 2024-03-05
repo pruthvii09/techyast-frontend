@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import { useSelector } from "react-redux";
 const data = [
   { name: "Redis", uv: 400, pv: 2400, amt: 2400 },
   { name: "Docker", uv: 200, pv: 2400, amt: 2400 },
@@ -9,6 +10,7 @@ const data = [
   { name: "NodeJs", uv: 235, pv: 2400, amt: 2400 },
 ];
 const Dashboard = () => {
+  const { courses } = useSelector((store) => store.courses);
   return (
     <Sidebar>
       <div className="h-screen">
@@ -16,7 +18,7 @@ const Dashboard = () => {
         <div className="flex flex-col gap-4">
           <div className="px-10 py-5 bg-[#1e1e1e] rounded-md w-fit">
             <h3 className="text-2xl">Your Total Course</h3>
-            <p className="text-3xl font-bold">10</p>
+            <p className="text-3xl font-bold">{courses.length}</p>
           </div>
           <div className="px-10 py-5 text-white bg-[#1e1e1e] rounded-md w-fit">
             <LineChart

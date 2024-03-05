@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 import { uploadFile } from "../helper/uploadFile";
 import postAPIData from "../hooks/postApiData";
 import { addLectures } from "../redux/lectureSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Lectures from "../components/Lectures";
 
 const SingleCourse = () => {
@@ -19,6 +19,9 @@ const SingleCourse = () => {
   const { data, getLoading, getError } = getAPIData(
     `${process.env.REACT_APP_NODE_API}/course/${id}`
   );
+  const { lectures } = useSelector((store) => store.lectures);
+  const { user } = useSelector((store) => store.user);
+
   useEffect(() => {
     if (!getError || !getLoading) {
       console.log(data);
@@ -38,6 +41,10 @@ const SingleCourse = () => {
     console.log(selectedFile);
     if (selectedFile) {
       try {
+        const maxSize = 100 * 1024 * 1024; // 100MB in bytes
+        if (selectedFile.size > maxSize) {
+          return toast.error("File size must be less than 100MB");
+        }
         const videoUrl = await uploadFile(selectedFile);
         setLectureData((prevData) => ({
           ...prevData,
@@ -78,6 +85,18 @@ const SingleCourse = () => {
       console.log(error);
     }
   };
+  const handleAddLecture = async () => {
+    console.log(lectures.length);
+    if (
+      (lectures.length >= 1) &
+      (user?.data?.email !== "autipruthviraj@gmail.com")
+    ) {
+      return toast.error(
+        "You can only add one Lecture, contact support for more details"
+      );
+    }
+    setDialogOpen(!dialogOpen);
+  };
   return (
     <Sidebar>
       <div className="h-full bg-black text-white">
@@ -91,7 +110,7 @@ const SingleCourse = () => {
             <h3 className="text-4xl">Lectures</h3>
             <div className="mt-4">
               <button
-                onClick={() => setDialogOpen(!dialogOpen)}
+                onClick={handleAddLecture}
                 className="px-4 py-2 bg-blue-600 rounded-md mb-4"
               >
                 Add Lectures
@@ -170,7 +189,7 @@ const SingleCourse = () => {
               onClick={hanldeUploadLecture}
               className="bg-blue-600 px-4 py-2 rounded-md"
             >
-              Add Lecture
+              {loading ? "Loading..." : "Add Lecture"}
             </button>
           </div>
         </Dialog>

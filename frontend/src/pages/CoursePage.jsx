@@ -28,7 +28,7 @@ const CoursePage = () => {
   });
   const { sendData, loading, error } = postAPIData();
   const handleSaveCourse = async () => {
-    console.log(courseData);
+    console.log(courses);
     if (!courseData.banner || !courseData.name || !courseData.desc) {
       toast.error("All Fields Required!!");
       return;
@@ -84,6 +84,18 @@ const CoursePage = () => {
       }
     }
   };
+  const handleAddCourse = () => {
+    console.log(courses.length);
+    if (
+      (courses.length >= 1) &
+      (user?.data?.email !== "autipruthviraj@gmail.com")
+    ) {
+      return toast.error(
+        "You can only add one course, contact support for more details"
+      );
+    }
+    setDialogOpen(!dialogOpen);
+  };
   return (
     <Sidebar>
       {getLoading ? (
@@ -94,7 +106,7 @@ const CoursePage = () => {
         <div className="h-screen">
           <h2 className="text-4xl mb-5">Your Courses</h2>
           <button
-            onClick={() => setDialogOpen(!dialogOpen)}
+            onClick={handleAddCourse}
             className="px-4 py-2 bg-blue-600 rounded-md mb-4"
           >
             Add Course
