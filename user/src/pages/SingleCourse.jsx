@@ -15,17 +15,14 @@ const SingleCourse = () => {
   const isEnrolled = enrollments?.some(
     (enrollment) => enrollment?.courseId === id
   );
-  console.log("enrolled", isEnrolled);
   const [lectures, setLectures] = useState(null);
   const { data, getLoading, getError } = getAPIData(
     `${process.env.REACT_APP_NODE_API}/course/${id}`
   );
   useEffect(() => {
     if (!getError || !getLoading) {
-      console.log(data);
       setCourse(data?.data?.course);
       setLectures(data?.data?.lectures);
-      console.log("first", lectures);
     }
   }, [data, getLoading, getError]);
   function loadScript(src) {
@@ -56,7 +53,6 @@ const SingleCourse = () => {
     const result = await axios.post(
       `${process.env.REACT_APP_NODE_API}/payments/${course.id}`
     );
-    console.log(result);
     if (!result) {
       alert("Server error. Are you online?");
       return;

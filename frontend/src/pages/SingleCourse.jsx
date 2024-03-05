@@ -14,7 +14,6 @@ import Loader from "../components/Loader/Loader";
 
 const SingleCourse = () => {
   const { id } = useParams();
-  console.log(id);
   const dispatch = useDispatch();
   const [course, setCourse] = useState(null);
   const { data, getLoading, getError } = getAPIData(
@@ -25,7 +24,6 @@ const SingleCourse = () => {
 
   useEffect(() => {
     if (!getError || !getLoading) {
-      console.log(data);
       setCourse(data?.data?.course);
     }
   }, [data, getLoading, getError]);
@@ -37,9 +35,7 @@ const SingleCourse = () => {
     courseId: id,
   });
   const handleFileChange = async (e) => {
-    console.log("hello");
     const selectedFile = e.target.files[0];
-    console.log(selectedFile);
     if (selectedFile) {
       try {
         const maxSize = 100 * 1024 * 1024; // 100MB in bytes
@@ -51,7 +47,6 @@ const SingleCourse = () => {
           ...prevData,
           link: videoUrl,
         }));
-        console.log(videoUrl);
       } catch (error) {
         console.error("Error uploading file:", error);
       }
@@ -83,7 +78,7 @@ const SingleCourse = () => {
       });
     }
     if (error) {
-      console.log(error);
+      toast.error(error);
     }
   };
   const handleAddLecture = async () => {
