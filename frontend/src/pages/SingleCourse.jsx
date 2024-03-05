@@ -10,6 +10,7 @@ import postAPIData from "../hooks/postApiData";
 import { addLectures } from "../redux/lectureSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Lectures from "../components/Lectures";
+import Loader from "../components/Loader/Loader";
 
 const SingleCourse = () => {
   const { id } = useParams();
@@ -97,6 +98,13 @@ const SingleCourse = () => {
     }
     setDialogOpen(!dialogOpen);
   };
+  if (getLoading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
   return (
     <Sidebar>
       <div className="h-full bg-black text-white">
