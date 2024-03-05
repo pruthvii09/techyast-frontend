@@ -18,7 +18,9 @@ const Dashboard = () => {
         <div className="flex flex-col gap-4">
           <div className="px-10 py-5 bg-[#1e1e1e] rounded-md w-fit">
             <h3 className="text-2xl">Your Total Course</h3>
-            <p className="text-3xl font-bold">{courses.length}</p>
+            <p className="text-3xl font-bold">
+              {courses ? courses.length : "0"}
+            </p>
           </div>
           <div className="px-10 py-5 text-white bg-[#1e1e1e] rounded-md w-fit">
             <LineChart
