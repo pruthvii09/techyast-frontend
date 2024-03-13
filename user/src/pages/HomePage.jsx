@@ -22,9 +22,9 @@ const HomePage = () => {
     );
   }
   return (
-    <div className="pt-20 sm:px-20 px-4 text-white">
+    <div className="pt-20 sm:px-20 px-4 py-5 text-white">
       <h2 className="text-3xl font-bold mb-4">All Courses</h2>
-      <div className="flex flex-wrap items-center sm:justify-start justify-center gap-4">
+      <div className="flex flex-wrap items-center sm:justify-between justify-center gap-4">
         {courses?.map((course) => (
           <Course key={course?.id} course={course} />
         ))}

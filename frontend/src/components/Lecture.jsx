@@ -11,7 +11,6 @@ const Lecture = ({ lecture }) => {
   const dispatch = useDispatch();
   const { user } = useSelector((store) => store.user);
   const hanldeDelete = async () => {
-    console.log("hello");
     try {
       const response = await axios.delete(
         `${process.env.REACT_APP_NODE_API}/lectures/${lecture.id}`,
@@ -21,7 +20,6 @@ const Lecture = ({ lecture }) => {
           },
         }
       );
-      console.log(response.data.status);
       toast.success("Deleted Successfully");
       dispatch(deleteLecture(lecture.id));
     } catch (error) {

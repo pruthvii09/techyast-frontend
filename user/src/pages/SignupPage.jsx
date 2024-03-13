@@ -38,7 +38,7 @@ const SignupPage = () => {
 
       if (res) {
         localStorage.setItem("user", JSON.stringify(res));
-        console.log(res);
+
         dispatch(setUser(res));
         navigate("/"); // Assuming `navigate` is available to redirect the user
       }

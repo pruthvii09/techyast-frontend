@@ -15,8 +15,7 @@ import { useNavigate } from "react-router-dom";
 const CoursePage = () => {
   const { courses } = useSelector((store) => store.courses);
   const { user } = useSelector((store) => store.user);
-  console.log(user);
-  console.log(courses);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [courseData, setCourseData] = useState({
@@ -28,7 +27,7 @@ const CoursePage = () => {
   });
   const { sendData, loading, error } = postAPIData();
   const handleSaveCourse = async () => {
-    console.log(courses);
+   
     if (!courseData.banner || !courseData.name || !courseData.desc) {
       toast.error("All Fields Required!!");
       return;
@@ -62,30 +61,28 @@ const CoursePage = () => {
       navigate("/");
     }
     if (!getError || !getLoading) {
-      console.log(data);
+     
       dispatch(setCourses(data?.data));
     }
   }, [data, getLoading, getError]);
   const handleFileChange = async (e) => {
-    console.log("hello");
+    
     const selectedFile = e.target.files[0];
-    console.log(selectedFile);
+  
     if (selectedFile) {
       try {
         const imageUrl = await uploadFile(selectedFile);
-        console.log(imageUrl);
+      
         setCourseData((prevData) => ({
           ...prevData,
           banner: imageUrl,
         }));
-        console.log(imageUrl);
       } catch (error) {
         console.error("Error uploading file:", error);
       }
     }
   };
   const handleAddCourse = () => {
-    console.log(courses.length);
     if (
       (courses.length >= 1) &
       (user?.data?.email !== "autipruthviraj@gmail.com")

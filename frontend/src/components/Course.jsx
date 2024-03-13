@@ -21,7 +21,6 @@ const Course = ({ course }) => {
           },
         }
       );
-      console.log(response.data.status);
       toast.success("Deleted Successfully");
       dispatch(deleteCourse(course.id));
     } catch (error) {

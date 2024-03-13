@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Loader = () => {
+  const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMessage(true);
+    }, 2000);
+
+    // Cleanup function to clear the timer if component unmounts or request completes before 2 seconds
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div
       role="status"
@@ -22,9 +32,11 @@ const Loader = () => {
         />
       </svg>
       <span className="sr-only">Loading...</span>
-      <span className="text-white text-base">
-        Hang on tight first request takes time....
-      </span>
+      {showMessage && (
+        <span className="text-white text-base">
+          Hang on tight first request takes time....
+        </span>
+      )}
     </div>
   );
 };

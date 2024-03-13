@@ -58,7 +58,6 @@ const SingleCourse = () => {
       toast.error("All Fields Required!!");
       return;
     }
-    console.log(lectureData);
     const res = await sendData(
       `${process.env.REACT_APP_NODE_API}/lectures`,
       null,
@@ -82,7 +81,6 @@ const SingleCourse = () => {
     }
   };
   const handleAddLecture = async () => {
-    console.log(lectures.length);
     if (
       (lectures.length >= 1) &
       (user?.data?.email !== "autipruthviraj@gmail.com")

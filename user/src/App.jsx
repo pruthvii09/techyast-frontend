@@ -19,10 +19,7 @@ function App() {
         const response = await axios.get(
           `${process.env.REACT_APP_NODE_API}/enrollments/${user?.data?.id}`
         );
-        console.log(response);
         const data = response.data;
-        console.log("first", data);
-        console.log(data?.data);
         dispatch(setEnrollment(data?.data));
       } catch (error) {
         console.error("Error fetching data:", error);
