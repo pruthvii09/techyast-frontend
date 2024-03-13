@@ -28,7 +28,7 @@ const Course = ({ course }) => {
     }
   };
   return (
-    <div className="max-w-xs bg-[#181818] rounded-lg shadow dark:bg-[#181818]">
+    <div className="max-w-xs bg-[#181818] rounded-lg shadow ">
       <a href="#">
         <img
           loading="lazy"
@@ -41,13 +41,13 @@ const Course = ({ course }) => {
         <div>
           <div>
             <a href="#">
-              <h5 className="mb-2 truncate text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="mb-2 truncate text-2xl font-bold tracking-tight text-white ">
                 {course.name}
               </h5>
             </a>
             <p className="text-xl font-bold">$ {course.price}</p>
           </div>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="mb-3 font-normal text-gray-400 ">
             {course.desc.substring(0, 100)}....
           </p>
         </div>

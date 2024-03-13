@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 sm:px-12 px-4">
           <a href="/" className="flex items-center gap-2">
             <img src={Logo} className="sm:h-8 h-7" alt="Flowbite Logo" />
-            <h1 className="self-center sm:text-3xl text-xl font-semibold whitespace-nowrap dark:text-white">
+            <h1 className="self-center sm:text-3xl text-xl font-semibold whitespace-nowrap text-white">
               Teachyast
             </h1>
           </a>

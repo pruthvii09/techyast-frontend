@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Course = ({ course }) => {
+  console.log(course);
   return (
     <div className="max-w-xs  rounded-lg shadow bg-gray-800">
       <a href="#">
@@ -20,11 +21,12 @@ const Course = ({ course }) => {
                 {course.name}
               </h5>
             </a>
-            <p className="text-xl font-bold">$ {course.price}</p>
+            <p className="text-xl font-bold"> &#8377; {course.price}</p>
           </div>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+          <p className="font-normal text-gray-700 dark:text-gray-400">
             {course.desc.substring(0, 100)}....
           </p>
+          <p className="mb-3 font-normal text-white">By: {course.user}</p>
         </div>
         <Link
           to={`/courses/${course?.id}`}

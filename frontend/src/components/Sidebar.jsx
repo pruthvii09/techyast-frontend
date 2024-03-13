@@ -39,7 +39,7 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 to={"/dashboard"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 group"
+                className="flex items-center p-2 text-white rounded-lg    group"
               >
                 <LayoutDashboard />
                 <span className="ms-3">Dashboard</span>
@@ -48,7 +48,7 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 to={"/dashboard/courses"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 group"
+                className="flex items-center p-2 text-white rounded-lg    group"
               >
                 <NotebookPen />
                 <span className="flex-1 ms-3 whitespace-nowrap">Courses</span>
@@ -57,7 +57,7 @@ const Sidebar = ({ children }) => {
             {/* <li>
               <NavLink
                 to={"/dashboard/blogs"}
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-white rounded-lg  hover:bg-gray-100 hover:bg-gray-700 group"
               >
                 <NotebookPen />
                 <span className="flex-1 ms-3 whitespace-nowrap">Blog</span>
@@ -66,7 +66,7 @@ const Sidebar = ({ children }) => {
             <li>
               <NavLink
                 href="#"
-                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                className="flex items-center p-2 text-white rounded-lg  hover:bg-gray-100 hover:bg-gray-700 group"
               >
                 <LockKeyhole />
                 <span className="flex-1 ms-3 whitespace-nowrap">Passwords</span>
@@ -75,7 +75,7 @@ const Sidebar = ({ children }) => {
             <li>
               <button
                 onClick={handleLogout}
-                className="flex w-full text-start items-start p-2 text-gray-900 rounded-lg dark:text-white dark:bg-gray-800 group"
+                className="flex w-full text-start items-start p-2 text-white rounded-lg  bg-gray-800 group"
               >
                 <LogOut />
                 <span className="flex-1 ms-3 whitespace-nowrap">Logout</span>

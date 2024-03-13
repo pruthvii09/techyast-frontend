@@ -30,7 +30,7 @@ const Lecture = ({ lecture }) => {
     <div className="flex sm:flex-row flex-col gap-4 bg-[#1e1e1e] sm:px-10 px-5 py-5 rounded-md">
       <div className="sm:w-2/5 w-full sm:h-52 h-full">
         <video
-          className="w-full h-auto max-w-full border border-gray-200 rounded-lg dark:border-gray-700"
+          className="w-full h-auto max-w-full border border-gray-700 rounded-lg -700"
           controls
         >
           <source src={lecture.link} />
